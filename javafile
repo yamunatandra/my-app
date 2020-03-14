@@ -1,0 +1,17 @@
+pipeline{
+agent any
+     stages{
+            stage("get SCM")
+               {
+               steps{
+                  git credentials:  https://github.com/yamunatandra/my-app.git
+                    } 
+                 }   
+               stage("compile job")
+               {
+                steps{
+                    sh 'mvn package'
+                    }            
+               }
+            } 
+         }
