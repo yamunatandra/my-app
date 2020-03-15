@@ -11,5 +11,12 @@ pipeline{
                  sh script: 'mvn clean package'
             }           
         }
+        
+         stage("deploy job")
+        {
+            steps{
+                 sh "curl -v -u admin:admin -T /var/lib/jenkins/workspace/github_project2/target/my-app-1.0-SNAPSHOT.jar 'http://18.223.166.111:8080//manager/text/deploy?path=my-app' "
+            } 
+        }
     }
 }
