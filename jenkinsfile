@@ -4,7 +4,14 @@ pipeline{
     tools {
           maven 'maven'
      }
-    stages{         
+    stages{ 
+          stage('git checkout')
+          {
+              steps
+              {
+                https://github.com/yamunatandra/my-app.git
+              }
+           }
          stage("build job")
         {
             steps{
