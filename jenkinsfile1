@@ -1,0 +1,21 @@
+pipeline{
+    agent any
+    tools {
+          maven 'maven'
+     }
+    stages{ 
+          stage('git checkout')
+          {
+              steps
+              {
+                https://github.com/yamunatandra/my-app.git
+              }
+           }
+         stage("build job")
+        {
+            steps{
+                 sh script: 'mvn package'
+            }           
+        }
+    }
+}
